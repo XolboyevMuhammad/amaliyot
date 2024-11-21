@@ -11,7 +11,7 @@ pathlib.PosixPath = pathlib.Path
 
 # Sarlavha
 st.markdown("# :rainbow[Tasvirlarni aniqlash]")
-st.write("Klasslar: Car, Airplane, Boat, Carnivore, Musical_instrument, Sports_equipment, Telephone, Office_supplies, Kitchen_utensil")
+st.write("Klasslar: Car, Airplane, Boat, Fruit, Door, Bicycle, Fish, Bird, Toy, Bear")
 
 # Rasmni yuklash - fayl yoki link orqali
 st.markdown("> :green[Rasmni ushbu qismga yuklang]")
@@ -52,7 +52,7 @@ if file_upload or url_input:
 # Sidebar qo'shimchalar
 st.sidebar.header("Qo'shimcha ma'lumotlar")
 st.sidebar.write("Bizni ijtimoiy tarmoqlarda kuzatib boring:")
-st.sidebar.markdown("[Telegram](https://t.me/ali_bek_003)")
-st.sidebar.markdown("[Instagram](https://www.instagram.com/alib_ek0311/profilecard/?igsh=MWo5azN2MmM2cGs0aw==)")
-st.sidebar.markdown("[Github](https://github.com/AlibekSerikbayev)")
-st.write("Ushbu dastur Alibek Serikbayev tomonidan yaratildi")
+st.sidebar.markdown("[Telegram](https://t.me/M_Xolboyev)")
+st.sidebar.markdown("[Instagram](https://www.instagram.com/muhammad_kholboyev/profilecard/?igsh=MWo5azN2MmM2cGs0aw==)")
+st.sidebar.markdown("[Github](https://github.com/XolboyevMuhammad)")
+st.write("Ushbu dastur Xolboyev Muhammad tomonidan ishlab chiqildi")
