@@ -1,0 +1,2 @@
+# amaliyot
+ dars
