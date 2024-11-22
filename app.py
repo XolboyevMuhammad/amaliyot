@@ -1,7 +1,7 @@
 import streamlit as st
 from fastai.vision.all import *
 import plotly.express as px
-from pathlib import Path
+import pathlib
 from PIL import Image
 import requests
 from io import BytesIO
