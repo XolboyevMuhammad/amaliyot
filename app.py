@@ -1,11 +1,10 @@
 import streamlit as st
 from fastai.vision.all import*
-
 import pathlib
 import plotly.express as px
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
-
+#o'zgarish
 # Rasm yuklash
 uploaded_file = st.file_uploader("Rasm yuklang", type=["jpg", "jpeg", "png"])
 
