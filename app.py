@@ -14,7 +14,7 @@ if files:
     # PIL convert
     img = PILImage.create(files)
     
-    # Modelni yuklash
+    # Modelni yuklash 
     model = load_learner('transport_model.pkl')
 
     # Bashorat qiymatni topamiz
