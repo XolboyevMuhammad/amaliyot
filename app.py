@@ -1,33 +1,27 @@
 import streamlit as st
-from fastai.vision.all import*
-import pathlib
+from fastai.vision.all import *
 import plotly.express as px
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
-#o'zgarish
-# Rasm yuklash
-uploaded_file = st.file_uploader("Rasm yuklang", type=["jpg", "jpeg", "png"])
+import pathlib
+pathlib.PosixPath = pathlib.Path
+#hahahaha
+# title
+st.title('Transportni klassifikatsiya qiluvchi model')
 
-if uploaded_file is not None:
-    # Yuklangan rasmni o'qish
-    img = PILImage.create(uploaded_file)
+# Rasmni joylash
+files = st.file_uploader("Rasm yuklash", type=["avif", "png", "jpeg", "gif", "svg"])
+if files:
+    st.image(files)  # rasmni chiqarish
+    # PIL convert
+    img = PILImage.create(files)
     
-    # Modelni yuklashA
-    learner = load_learner("transport_model.pkl")
-    
-    # Debugging: Learner turini tekshirish
-    st.write(f"Learner turi: {type(learner)}")
+    # Modelni yuklash
+    model = load_learner('transport_model.pkl')
 
-    # Rasmni aniqlash
-    try:
-        # Learner obyektining to'g'ri ekanligini tekshirish
-        if isinstance(learner, Learner):
-            pred, pred_idx, probs = learner.predict(img)
-            
-            # Natijani ko'rsatish
-            st.image(img, caption='Yuklangan rasm', use_column_width=True)
-            st.write(f"Bu rasm: {pred} (Ishonch: {probs[pred_idx]:.2f})")
-        else:
-            st.error("Learner obyektida xato. Model yuklash jarayonini tekshiring.")
-    except Exception as e:
-        st.error(f"Rasmni aniqlashda xato: {e}")
+    # Bashorat qiymatni topamiz
+    pred, pred_id, probs = model.predict(img)
+    st.success(f"Bashorat: {pred}")
+    st.info(f"Ehtimollik: {probs[pred_id] * 100:.1f}%")
+
+    # Plotting
+    fig = px.bar(x=probs * 100, y=model.dls.vocab)
+    st.plotly_chart(fig)
